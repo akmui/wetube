@@ -4,8 +4,10 @@
   "description": "Cloning Youtube with Vanilla and NodeJS",
   "main": "index.js",
   "author": "lgit",
-  "license": "ISC",
   "dependencies": {
     "express": "^4.17.0"
+  },
+  "scripts": {
+    "start": "node index.js"
   }
 }

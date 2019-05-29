@@ -1,5 +1,3 @@
-
-
 // global
 const HOME = "/";
 const JOIN = "/join";

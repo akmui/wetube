@@ -1,9 +1,11 @@
-// Global
+
+
+// global
 const HOME = "/";
 const JOIN = "/join";
 const LOGIN = "/login";
 const LOGOUT = "/logout";
-const SEARCH = "/serach"
+const SEARCH = "/search"
 
 // users
 const USERS = "/users";
@@ -23,7 +25,7 @@ const routes = {
     join: JOIN,
     login: LOGIN,
     logout: LOGOUT,
-    serach: SEARCH,
+    search: SEARCH,
     users: USERS,
     userDetail: USER_DETAIL,
     editProfile: EDIT_PROFILE,

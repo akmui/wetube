@@ -7,7 +7,17 @@ header.hearder
             input(type="text", placeholder="Search by term..", name="term")
     .header__colum
         ul
-            li
-                a(href=routes.join) join
-            li
-                a(href=routes.login) log In
+            if !user.isAuthenticated
+                li
+                    a(href=routes.join) join
+                li
+                    a(href=routes.login) log In
+
+            else
+                li
+                    a(href=routes.upload) Upload
+                li  
+                    a(href=routes.userDetail(user.id)) Profile
+                li  
+                    a(href=routes.logout) Log out
+                

@@ -3,7 +3,7 @@ include mixins/videoBlock.pug
  
 block content
     .videos
-        each item in videoDb
+        each item in videos
             +videoBlock({
                 id: item.id,
                 title: item.title,

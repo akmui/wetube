@@ -1,5 +1,6 @@
 import routes from "../routes"
 import Video from "../models/Video";
+import { file } from "babel-types";
 
 export const home = async (req, res) => {
     try{
@@ -25,13 +26,31 @@ export const search = async (req, res) => {
 export const videos = (req, res) => res.render("videos", { pageTitle: "Videos" });
 
 export const getUpload = (req, res) => res.render("upload", { pageTitle: "Upload" });
-export const postUpload = (req, res) => {
-    const{ body: { file, title, description }} = req;
-    // To do: Upload and save video
-    res.redirect(routes.videoDetail(324293)); 
+export const postUpload = async (req, res) => {
+    const{ 
+        body: { title, description }, 
+        file: { path }
+    } = req;
+    const newVideo = await Video.create({
+            fileUrl: path,
+            title,
+            description
+        });
+    console.log(newVideo);
+    res.redirect(routes.videoDetail(newVideo.id)); 
+};
+
+export const videoDetail = async (req, res) => {
+    const { params:{ id } } =req;
+    try{
+    const video = await Video.findById(id);
+    res.render("videoDetail", { pageTitle: "Video Detail", video });
+    }catch(error){
+    res.redirect(routes.users);  
+    };
 };
 
 
-export const videoDetail = (req, res) => res.render("videoDetail", { pageTitle: "Video Detail" });
+
 export const editVideo = (req, res) => res.render("editVideo", { pageTitle: "Eidt Video" });
 export const deleteVideo = (req, res) => res.render("deleteVideo", { pageTitle: "Delete Video" });

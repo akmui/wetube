@@ -4,7 +4,7 @@ module.exports = {
     es6: true,
   },
   extends: [
-    "airbnb-base", "plugin: prettier / recommended"
+    'airbnb-base',
   ],
   globals: {
     Atomics: 'readonly',
@@ -12,11 +12,9 @@ module.exports = {
   },
   parserOptions: {
     ecmaVersion: 2018,
-    sourceType: 'module',
   },
   rules: {
-    indent: [error, 4],
-    quotes: [error, single],
-    semi: [error, always]
-  }
-};
+  indent: [error, 4],
+  quoter: [error, double], 
+  , 
+    

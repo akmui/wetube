@@ -14,6 +14,10 @@ module.exports = {
     ecmaVersion: 2018,
   },
   rules: {
-    "no-console": "off"
+    "no-console": "off",
+    "indent": "off",
+    "comma-dangle": "off",
+    "function-paren-newline": "off",
+    "quotes": "off"
   }
 }

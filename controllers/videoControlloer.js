@@ -1,4 +1,4 @@
-import routes from "../routes"
+import routes from "../routes";
 import Video from "../models/Video";
 import { file } from "babel-types";
 
@@ -21,7 +21,7 @@ export const search = async (req, res) => {
     } catch (error) {
         console.log(error);
     }
-    res.render("search", { pageTitle: "Search", searchingBy, videos })
+    res.render("search", { pageTitle: "Search", searchingBy, videos });
 };
 export const videos = (req, res) => res.render("videos", { pageTitle: "Videos" });
 
@@ -47,10 +47,8 @@ export const videoDetail = async (req, res) => {
         res.render("videoDetail", { pageTitle: video.title, video });
     } catch (error) {
         res.redirect(routes.users);
-    };
+    }
 };
-
-
 
 export const getEditVideo = async (req, res) => {
     const { params: { id } } = req;

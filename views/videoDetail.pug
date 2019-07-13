@@ -2,7 +2,7 @@ extends layouts/main.pug
  
 block content
     .video-detail__container
-        .video__player
+        .videoPlayer
             video(src=`/${video.fileUrl}`, controls=true)
         .video__info
             if video.creator.id === loggedUser.id

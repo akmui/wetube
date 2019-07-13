@@ -98,10 +98,10 @@ export const getMe = (req, res) => {
 
 export const users = (req, res) => res.render("users");
 export const userDetail = async (req, res) => {
-  const { prams: { id } } = req;
+  const { params: { id } } = req;
   try {
     const user = await User.findById(id);
-    res.render("userDetail", { pageTitle: "User detail" }, user);
+    res.render("userDetail", { pageTitle: "User detail", user });
   } catch (error) {
     res.redirect(routes.home);
   }

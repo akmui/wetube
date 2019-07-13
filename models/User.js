@@ -6,7 +6,23 @@ const UserSchema = new mongoose.Schema({
     email: String,
     avatarUrl: String,
     facebookId: Number,
-    githubId: Number
+    githubId: Number,
+    comments: [
+        {
+            creator: {
+                type: mongoose.Schema.Types.ObjectId,
+                ref: 'Comment'
+            }
+        }
+    ],
+    videos: [
+        {
+            creator: {
+                type: mongoose.Schema.Types.ObjectId,
+                ref: 'Video'
+            }
+        }
+    ]
 });
 
 UserSchema.plugin(passportLocalMongoose, { usernameField: "email" });

@@ -14,21 +14,25 @@ const EDIT_PROFILE = "/edit-profile";
 const CHANGE_PASSWORD = "/change-password";
 const ME = "/me";
 
-//videos
+// videos
 const VIDEOS = "/videos";
 const UPLOAD = "/upload";
 const VIDEO_DETAIL = "/:id";
 const EDIT_VIDEO = "/:id/edit";
 const DELETE_VIDEO = "/:id/delete";
 
-//Github
+// Github
 
 const GITHUB = "/auth/github";
 const GITHUB_CALLBACK = "/auth/github/callback";
 
-//Facebook
+// Facebook
 const FB = "/auth/github";
 const FB_CALLBACK = "/auth/facebook/callback";
+
+// API
+const REGISTER_VIEW = "/:id/view";
+
 
 const routes = {
     home: HOME,
@@ -73,7 +77,8 @@ const routes = {
     github: GITHUB,
     githubCallback: GITHUB_CALLBACK,
     facebook: FB,
-    facebookCallback: FB_CALLBACK
+    facebookCallback: FB_CALLBACK,
+    registerView: REGISTER_VIEW
 };
 
 export default routes;

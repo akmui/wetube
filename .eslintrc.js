@@ -18,6 +18,7 @@ module.exports = {
     "indent": "off",
     "comma-dangle": "off",
     "function-paren-newline": "off",
-    "quotes": "off"
+    "quotes": "off",
+    browser: true
   }
 }

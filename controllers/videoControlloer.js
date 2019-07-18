@@ -1,5 +1,6 @@
 import routes from "../routes";
 import Video from "../models/Video";
+import Comment from "../models/Comment";
 import { file } from "babel-types";
 
 export const home = async (req, res) => {
@@ -45,7 +46,7 @@ export const postUpload = async (req, res) => {
 export const videoDetail = async (req, res) => {
     const { params: { id } } = req;
     try {
-        const video = await Video.findById(id).populate('creator');
+        const video = await Video.findById(id).populate('creator').populate('comments');
         res.render("videoDetail", { pageTitle: video.title, video });
     } catch (error) {
         res.redirect(routes.users);
@@ -91,8 +92,9 @@ export const deleteVideo = async (req, res) => {
 
 // API: only interact with server
 
-export const registerView = async (req, res) => {
-    const { params: id } = req;
+export const postRegisterView = async (req, res) => {
+    const {
+        params: { id } } = req;
     try {
         const video = await Video.findById(id);
         video.views += 1;
@@ -103,5 +105,25 @@ export const registerView = async (req, res) => {
     } finally {
         res.end();
     }
+};
 
+// Comment API
+export const postAddcomment = async (req, res) => {
+    const {
+        params: { id },
+        body: { comment },
+        user } = req;
+    try {
+        const video = await Video.findById(id);
+        const newComment = await Comment.create({
+            text: comment,
+            creator: user.id
+        });
+        video.comments.push(newComment.id);
+        video.save();
+    } catch (error) {
+        res.status(400);
+    } finally {
+        res.end()
+    }
 };

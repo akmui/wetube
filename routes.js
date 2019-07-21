@@ -34,6 +34,7 @@ const FB_CALLBACK = "/auth/facebook/callback";
 const API = "/api";
 const REGISTER_VIEW = "/:id/view";
 const ADD_COMMENT = "/:id/comment";
+const DELETE_COMMENT = "/:id/deletecomment";
 
 
 const routes = {
@@ -82,7 +83,13 @@ const routes = {
     facebookCallback: FB_CALLBACK,
     api: API,
     registerView: REGISTER_VIEW,
-    addComment: ADD_COMMENT
+    addComment: ADD_COMMENT,
+    deletComment: (id) => {
+        if (id) {
+            return `/api/${id}/deletecomment`;
+        } else {
+            return DELETE_COMMENT;
+        }
+    }
 };
-
 export default routes;

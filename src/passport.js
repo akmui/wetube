@@ -9,10 +9,10 @@ passport.use(User.createStrategy());
 passport.use(new GithubStrategy({
     clientID: process.env.GH_ID,
     clientSecret: process.env.GH_SECRET,
-    callbackURL: `https://frozen-oasis-69272.herokuapp.com/${routes.githubCallback}`
+    callbackURL: `https://shrouded-beach-73724.herokuapp.com/${routes.githubCallback}`
 }, githubLoginCallback
 ));
-    passport.use(new FacebookStrategy({
+passport.use(new FacebookStrategy({
     clientID: process.env.FB_ID,
     clientSecret: process.env.FB_SECRET,
     callbackURL: `https://nasty-turkey-30.localtunnel.me${

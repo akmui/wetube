@@ -24,6 +24,7 @@
     "express-flash": "0.0.2",
     "express-session": "^1.16.2",
     "extract-text-webpack-plugin": "^4.0.0-beta.0",
+    "flash": "^1.1.0",
     "get-blob-duration": "^1.0.1",
     "helmet": "^3.18.0",
     "localtunnel": "^1.9.2",
@@ -52,7 +53,7 @@
     "build": "npm run build:server && npm run build:assets && npm run copyAll",
     "prebuild": "rm -rf build",
     "tunnel": "lt --port 4000",
-    "start": "node build/init.js",
+    "start": "PRODUCTION=true node build/init.js",
     "prestart": "npm run build"
   },
   "devDependencies": {

@@ -9,7 +9,9 @@ passport.use(User.createStrategy());
 passport.use(new GithubStrategy({
     clientID: process.env.GH_ID,
     clientSecret: process.env.GH_SECRET,
-    callbackURL: `https://limitless-citadel-37972.herokuapp.com/${routes.githubCallback}`
+    callbackURL: process.env.PRODUCTION
+        ? `https://polar-sea-27980.herokuapp.com${routes.githubCallback}`
+        : `http://localhost:4000${routes.githubCallback}`
 }, githubLoginCallback
 ));
 passport.use(new FacebookStrategy({

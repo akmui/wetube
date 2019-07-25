@@ -9,7 +9,7 @@ passport.use(User.createStrategy());
 passport.use(new GithubStrategy({
     clientID: process.env.GH_ID,
     clientSecret: process.env.GH_SECRET,
-    callbackURL: `https://shrouded-beach-73724.herokuapp.com/${routes.githubCallback}`
+    callbackURL: `https://limitless-citadel-37972.herokuapp.com/${routes.githubCallback}`
 }, githubLoginCallback
 ));
 passport.use(new FacebookStrategy({
